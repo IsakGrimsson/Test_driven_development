@@ -2,9 +2,9 @@ from modules.add_recipe import *
 
 # Mock user inputs for testing
 user_inputs = [
-    "Protein_tuna_salad",
-    "tuna", "can", "1", False, "Yes",
-    "cottage cheese", "gram", "300", False,"N"
+    "Protein_tuna_salad_two",
+    "tuna", "can", "1", "False", "Yes",
+    "cottage cheese", "grams", "300", "False","N"
 ]
 
 def test_create_csv(monkeypatch):
@@ -21,7 +21,7 @@ def test_create_csv(monkeypatch):
     # Check if the CSV file is created
     main_directory = os.path.dirname(os.getcwd())
     data_folder = os.path.join(main_directory, "data")
-    csv_file_path = os.path.join(data_folder, "Protein_tuna_salad")
+    csv_file_path = os.path.join(data_folder, "Protein tuna salad two")
     assert os.path.isfile(csv_file_path)
 
     # Read the contents of the CSV file
@@ -32,7 +32,7 @@ def test_create_csv(monkeypatch):
     # Check the header row
     assert rows[0] == ["Name", "Unit", "Number", "Staple"]
     # Check the data rows
-    assert rows[1] == ["tuna", "can", '1', 'False']
-    assert rows[2] == ["cottage cheese", "gram", '300', 'False']
+    assert rows[1] == ["Tuna", "can", '1', 'False']
+    assert rows[2] == ["Cottage cheese", "grams", '300', 'False']
     # Clean up: remove the test CSV file
     os.remove(csv_file_path)

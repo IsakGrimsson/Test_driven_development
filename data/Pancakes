@@ -1,6 +1,6 @@
 Name,Unit,Number,Staple
 Flour,grams,125,True
-Egg,X,3,False
+Egg,x,3,False
 Brown sugar,grams,15,True
-Salt,pinch,A,True
+Salt,pinch,1,True
 Milk,ml,300,True

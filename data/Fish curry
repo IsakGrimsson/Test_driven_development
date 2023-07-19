@@ -1,6 +1,6 @@
 Name,Unit,Number,Staple
-Red Pepper,X,2,False
-Lime,X,1,False
+Red Pepper,x,2,False
+Lime,x,1,False
 Garlic,clove,2,True
 Haddock,grams,400,True
 Vegetable stock,grams,30,True
