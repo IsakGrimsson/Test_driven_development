@@ -2,29 +2,34 @@ import csv
 import shutil
 import os
 
+def user_wants_to_continue(prompt_for_user):
+    continue_yes_or_no = ""
+    yes = ["YES", "Yes", "yes", "y", "Y",
+           "True", "true", "TRUE"]
+    no = ["NO", "No", "no", "n", "N",
+          "False", "false", "FALSE"]
+    continue_yes_or_no = input(prompt_for_user)
+    while not (continue_yes_or_no in yes or continue_yes_or_no in no):
+        continue_yes_or_no = input(
+            "I'm sorry I didn't undestand that command. Please answer either yes or no [y/n]")
+    if continue_yes_or_no in no:
+        return False
+    if continue_yes_or_no in yes:
+        return True
+
+
 def user_input_recipe():
     file_name = input("Please enter the name of the recipe you would like to add: ")
     ingredients = []
     while (True):
         ingredient = []
-        name = input("Please enter the ingredient you would like to add: ")
-        ingredient.append(name)
-        unit = input("Please enter the unit measurement: ")
-        ingredient.append(unit)
-        quantity = input("Please enter the quantity: ")
-        ingredient.append(quantity)
-        staple = input("Is this a staple ingredient? ")
-        ingredient.append(staple)
-
+        ingredient.append(input("Please enter the ingredient you would like to add: "))
+        ingredient.append(input("Please enter the unit measurement: "))
+        ingredient.append(input("Please enter the quantity: "))
+        ingredient.append(input("Is this a staple ingredient? "))
         ingredients.append(ingredient)
 
-        continue_yes_or_no = ""
-        yes = ["YES", "Yes", "yes", "y", "Y"]
-        no = ["NO", "No", "no", "n", "N"]
-        continue_yes_or_no = input("Do you wish to add another ingredient?")
-        while not (continue_yes_or_no in yes or continue_yes_or_no in no):
-            continue_yes_or_no = input("I'm sorry I didn't undestand that command. Do you wish to add another ingredient? [y/n]")
-        if continue_yes_or_no in no:
+        if user_wants_to_continue("Do you wish to add another ingredient?") == False:
             break
 
     return file_name,ingredients

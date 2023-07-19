@@ -10,7 +10,6 @@ I want to develop an application using the principles of TDD that is to say:
 
 # Deliverables
 1. Create CSV files from manual entry on the command line
-2. Parse all CSV files into a “Database”
-3. List all the recipes in the DB, allow the user to manually enter as many as they wish, allow the user to confirm their choice, (yes or no)
-4. Combine the ingredients of the selected recipes into one single list, returned as a text file
-5. Robust Error handling
+2. List all the recipes, allow the user to manually enter as many as they wish, allow the user to confirm their choice.
+3. Combine the ingredients of the selected recipes into one single list, returned as a text file
+4. Robust User Input Error handling

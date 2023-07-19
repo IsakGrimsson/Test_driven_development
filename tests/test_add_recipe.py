@@ -1,5 +1,3 @@
-import os
-
 from modules.add_recipe import *
 
 # Mock user inputs for testing
