@@ -11,7 +11,7 @@ def return_recipes():
 
 def select_recipes():
     selected_recipes = []
-    recipe_list = enumerate(return_recipes(), 1)
+    recipe_list = list(enumerate(return_recipes(), 1))
     escape_chars = ["X","x",
                     "Exit","exit","EXIT"]
     yes = ["YES", "Yes", "yes", "y", "Y",
@@ -23,8 +23,7 @@ def select_recipes():
             user_input = input("Please select a recipe by number, or enter X to end")
             if user_input in escape_chars:
                 break
-            selected_recipes.append(input("Please select a recipe by number:"))
+            selected_recipes.append(recipe_list[int(user_input)-1][1])
         user_input = input("Are these all the items you wish to add? enter Y to confirm, otherwise enter any key to add more items")
         if user_input in yes:
-            break
-    return select_recipes()
+            return selected_recipes
